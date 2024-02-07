@@ -11,7 +11,7 @@ vector<int> generate_reference_string(const vector<string>& log) {
     vector<int> reference_string;
     for (size_t i = 0; i < log.size(); ++i) {
         unsigned int decimalValue = stoi(log[i], 0, 16);
-        bitset<32> binaryValue(decimalValue);
+        bitset<32> binaryValue = bitset<32>(decimalValue);
         string binaryString = binaryValue.to_string();
         binaryString = binaryString.substr(0, 20);
         int decimalResult = bitset<20>(binaryString).to_ulong();
@@ -23,7 +23,7 @@ vector<int> generate_reference_string(const vector<string>& log) {
 
 int main() {
     ifstream file("trace1.txt");
-    if (!file.is_open()) {
+    if (!file.is_open())  {
         cerr << "Erro ao abrir o arquivo." << endl;
         return 1;  // Saída com código de erro
     }
@@ -37,5 +37,6 @@ int main() {
     }
 
     vector<int> reference_string = generate_reference_string(log);
+    printf("%d", reference_string[1]);
     return 0;
 }
