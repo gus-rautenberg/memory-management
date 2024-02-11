@@ -1,17 +1,4 @@
-#include <iostream>
-#include <ostream>
-#include <fstream>
-#include <vector>
-#include <set>
-#include <algorithm>
-#include <bitset>
-#include <iostream>
-#include <string>
-#include <typeinfo>
-//g++ -o referenceString referenceString.cpp
-
-
-using namespace std;
+#include "referenceString.h"
 
 vector<int> generateReferenceString(const vector<string>& log) {
     vector<int> reference_string;
@@ -33,26 +20,23 @@ vector<int> generateReferenceString(const vector<string>& log) {
     return reference_string;
 }
 
-int main() {
-    ifstream file("../Data/trace1");
-    if (!file.is_open())  {
+vector<string> getLog(string trace) {
+    string file = "../Data/trace";
+    file.append(trace);
+    ifstream in(file);
+    if (!in.is_open())  {
         cerr << "Erro ao abrir o arquivo." << endl;
-        return 1;  // Saída com código de erro
+        exit(2);  // Saída com código de erro
     }
-    // int pageSize = 4096;
+
     string line;
+    
     vector<string> log;
-    while (getline(file, line)) {
+    while (getline(in, line)) {
         while (line.size() < 8) line = "0" + line;
         log.push_back(line);
     }
-    vector<int> reference_string = generateReferenceString(log);
-    // printf("%d", reference_string[1][1]);
 
-    for(int i = 0; i<reference_string.size(); i++){
-        cout << i << ": " << reference_string[i] << endl << endl;
-    }
-
-    return 0;
-    file.close();
+    in.close();
+    return log;
 }
