@@ -10,20 +10,20 @@ OPT::~OPT(){
 }
 
 int OPT::check_for_hit(vector<int> reference_string){
-    cout << reference_string[0] << endl;
-    for (int i = 0; i < this->pages.size(); i++){
-        cout << this->pages[i] << " ";
-    }
-    cout << endl;
-    for (int i = 0; i < this->pages.size(); i++){
-        cout << this->next_appearence[i] << " ";
-    }
-    cout << endl;
-    for (int i = 0; i < reference_string.size(); i++){
-        cout << reference_string[i] << " ";
-    }
+    // cout << reference_string[0] << endl;
+    // for (int i = 0; i < this->pages.size(); i++){
+    //     cout << this->pages[i] << " ";
+    // }
+    // cout << endl;
+    // for (int i = 0; i < this->pages.size(); i++){
+    //     cout << this->next_appearence[i] << " ";
+    // }
+    // cout << endl;
+    // for (int i = 0; i < reference_string.size(); i++){
+    //     cout << reference_string[i] << " ";
+    // }
         
-    cout << endl;
+    // cout << endl;
 
     for (int i = 0; i < this->pages.size(); i++){
         if (this->pages[i] == reference_string[0])
@@ -36,6 +36,7 @@ int OPT::check_for_hit(vector<int> reference_string){
 
     this->replace_page(reference_string);
     this->subtract_from_next_appearence();
+    this->miss++;
     return 0;
 }
 
@@ -77,16 +78,15 @@ void OPT::subtract_from_next_appearence(){
     for (int i = 0; i < this->next_appearence.size(); i++)
     this->next_appearence[i]--;
 }
-/* 
-    EXAMPLE CODE
 
-    vector<int> reference_string;    
-    OPT memory(4);
-    for (int i = 0; i < array_size(); i++)
+int OPT::count_misses(vector<int>& ReferenceString){
+    vector<int> reference_string = ReferenceString;
+
+    for (int i = 0; i < ReferenceString.size(); i++)
     {
-        memory.check_for_hit(reference_string) >= 1 ? cout << "hit" : cout << "miss";
-        cout << endl << endl;
-        
+        this->check_for_hit(reference_string);
         reference_string.erase(reference_string.begin());
-    } 
-*/
+    }
+
+    return this->miss;
+}
