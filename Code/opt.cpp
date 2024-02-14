@@ -10,20 +10,20 @@ OPT::~OPT(){
 }
 
 int OPT::check_for_hit(vector<int> reference_string){
-    cout << reference_string[0] << endl;
-    for (int i = 0; i < this->pages.size(); i++){
-        cout << this->pages[i] << " ";
-    }
-    cout << endl;
-    for (int i = 0; i < this->pages.size(); i++){
-        cout << this->next_appearence[i] << " ";
-    }
-    cout << endl;
-    for (int i = 0; i < reference_string.size(); i++){
-        cout << reference_string[i] << " ";
-    }
+    // cout << reference_string[0] << endl;
+    // for (int i = 0; i < this->pages.size(); i++){
+    //     cout << this->pages[i] << " ";
+    // }
+    // cout << endl;
+    // for (int i = 0; i < this->pages.size(); i++){
+    //     cout << this->next_appearence[i] << " ";
+    // }
+    // cout << endl;
+    // for (int i = 0; i < reference_string.size(); i++){
+    //     cout << reference_string[i] << " ";
+    // }
         
-    cout << endl << endl;
+    // cout << endl << endl;
 
     for (int i = 0; i < this->pages.size(); i++){
         if (this->pages[i] == reference_string[0])
@@ -58,7 +58,7 @@ int OPT::find_next(vector<int> reference_string, int n){
             return i;
         }
     }
-    return std::numeric_limits<int>::max();
+    return numeric_limits<int>::max();
 }
 
 int OPT::find_furthest(){
