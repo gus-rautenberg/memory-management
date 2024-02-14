@@ -10,20 +10,20 @@ OPT::~OPT(){
 }
 
 int OPT::check_for_hit(vector<int> reference_string){
-    // cout << reference_string[0] << endl;
-    // for (int i = 0; i < this->pages.size(); i++){
-    //     cout << this->pages[i] << " ";
-    // }
-    // cout << endl;
-    // for (int i = 0; i < this->pages.size(); i++){
-    //     cout << this->next_appearence[i] << " ";
-    // }
-    // cout << endl;
-    // for (int i = 0; i < reference_string.size(); i++){
-    //     cout << reference_string[i] << " ";
-    // }
+    cout << reference_string[0] << endl;
+    for (int i = 0; i < this->pages.size(); i++){
+        cout << this->pages[i] << " ";
+    }
+    cout << endl;
+    for (int i = 0; i < this->pages.size(); i++){
+        cout << this->next_appearence[i] << " ";
+    }
+    cout << endl;
+    for (int i = 0; i < reference_string.size(); i++){
+        cout << reference_string[i] << " ";
+    }
         
-    // cout << endl;
+    cout << endl << endl;
 
     for (int i = 0; i < this->pages.size(); i++){
         if (this->pages[i] == reference_string[0])
@@ -63,7 +63,7 @@ int OPT::find_next(vector<int> reference_string, int n){
 
 int OPT::find_furthest(){
     int max_index = 0;
-    int max_int = this->next_appearence[1];
+    int max_int = this->next_appearence[0];
     for (int i = 1; i < this->next_appearence.size(); i++){
         if (this->next_appearence[i] > max_int){
             max_int = this->next_appearence[i];
