@@ -2,6 +2,7 @@
 
 vector<int> generateReferenceString(const vector<string>& log) {
     vector<int> reference_string;
+    int previous_value = 0;
     // cout << log << endl;
     for (size_t i = 0; i < log.size(); ++i) {
         unsigned int decimalValue;
@@ -15,7 +16,10 @@ vector<int> generateReferenceString(const vector<string>& log) {
         string binaryString = binaryValue.to_string();
         binaryString = binaryString.substr(0, 20);
         int decimalResult = bitset<20>(binaryString).to_ulong();
-        reference_string.push_back(decimalResult);
+        if(previous_value != decimalResult){
+            reference_string.push_back(decimalResult);
+            previous_value = decimalResult;
+        }
     }
     return reference_string;
 }
