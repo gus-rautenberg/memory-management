@@ -5,11 +5,13 @@
 #include <vector>
 
 using namespace std;
+// g++ LRU.cpp OPT.cpp referenceString.cpp main.cpp -o main
+
 
 int main(int argc, char const *argv[])
 {
     // for (size_t i = 1; i <= 4; i++) {
-        vector<string> log = getLog(to_string(1));
+        vector<string> log = getLog(to_string(4));
         // vector<string> log = getLog(to_string(i));
         vector<int> reference_string = generateReferenceString(log);
 
