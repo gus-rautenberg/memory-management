@@ -10,16 +10,14 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
     vector<int> reference_string;
-    vector<string> log = getLog("1");
+    vector<string> log = getLog("1"); // mudar frames aqui
     reference_string = generateReferenceString(log);
 
-    for (int j = 4; j <= 32; j *= 2) {
-        int LRUmiss = lruAlgorithm(reference_string, j);
-        cout << "LRU Misses: " << LRUmiss << endl;
-        OPT memory(j);
-        int OPTmiss = memory.count_misses(reference_string);
-        cout << "OPT Misses from trace 1 with " << j << " pages: " << OPTmiss << endl;
-    }
+    int LRUmiss = lruAlgorithm(reference_string, 4); // mudar número de frames aqui aqui
+    cout << "LRU Misses: " << LRUmiss << endl;
+    OPT memory(4); // mudar número de frames aqui
+    int OPTmiss = memory.count_misses(reference_string);
+    cout << "OPT Misses from trace " << 1 << " with " << 4 << " pages: " << OPTmiss << endl; // mudar log e frames aqui
 
     return 0;
 }
