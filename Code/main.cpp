@@ -6,6 +6,7 @@
 #include <chrono>
 
 using namespace std;
+// g++ LRU.cpp OPT.cpp referenceString.cpp main.cpp -o main
 
 int main(int argc, char const *argv[])
 {
