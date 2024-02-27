@@ -14,11 +14,11 @@ int main(int argc, char const *argv[])
     vector<string> log = getLog("1"); // mudar frames aqui
     reference_string = generateReferenceString(log);
 
-    int LRUmiss = lruAlgorithm(reference_string, 4); // mudar número de frames aqui aqui
+    int LRUmiss = lruAlgorithm(reference_string, 32); // mudar número de frames aqui aqui
     cout << "LRU Misses: " << LRUmiss << endl;
-    OPT memory(4); // mudar número de frames aqui
+    OPT memory(32); // mudar número de frames aqui
     int OPTmiss = memory.count_misses(reference_string);
-    cout << "OPT Misses from trace " << 1 << " with " << 4 << " pages: " << OPTmiss << endl; // mudar log e frames aqui
+    cout << "OPT Misses from trace " << 1 << " with " << 32 << " pages: " << OPTmiss << endl; // mudar log e frames aqui
 
     return 0;
 }

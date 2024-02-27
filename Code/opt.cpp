@@ -10,7 +10,8 @@ OPT::~OPT(){
 }
 
 int OPT::check_for_hit(vector<int> reference_string, int index){
-    // cout << reference_string[0] << endl;
+    // cout << reference_string[index] << " " << index <<  endl;
+
     // for (int i = 0; i < this->pages.size(); i++){
     //     cout << this->pages[i] << " ";
     // }
@@ -19,9 +20,7 @@ int OPT::check_for_hit(vector<int> reference_string, int index){
     //     cout << this->next_appearence[i] << " ";
     // }
     // cout << endl;
-    // for (int i = 0; i < reference_string.size(); i++){
-    //     cout << reference_string[i] << " ";
-    // }
+
         
     // cout << endl << endl;
 
@@ -44,13 +43,13 @@ int OPT::replace_page(vector<int> reference_string, int index){
         this->next_appearence.erase(this->next_appearence.begin() + index_to_erase);
     }
 
-    this->pages.push_back(reference_string.front());
+    this->pages.push_back(reference_string[index]);
     this->next_appearence.push_back(this->find_next(reference_string, reference_string[index], index));
     return 0;
 }
 
 int OPT::find_next(vector<int> reference_string, int n, int index){
-    for (int i = index; i < reference_string.size(); ++i) {
+    for (int i = index+1; i < reference_string.size(); ++i) {
         if (reference_string[i] == n) {
             return i;
         }
