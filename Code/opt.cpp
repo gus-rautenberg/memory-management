@@ -10,19 +10,6 @@ OPT::~OPT(){
 }
 
 int OPT::check_for_hit(vector<int> reference_string, int index){
-    // cout << reference_string[index] << " " << index <<  endl;
-
-    // for (int i = 0; i < this->pages.size(); i++){
-    //     cout << this->pages[i] << " ";
-    // }
-    // cout << endl;
-    // for (int i = 0; i < this->pages.size(); i++){
-    //     cout << this->next_appearence[i] << " ";
-    // }
-    // cout << endl;
-
-        
-    // cout << endl << endl;
 
     for (int i = 0; i < this->pages.size(); i++){
         if (this->pages[i] == reference_string[index]) {
