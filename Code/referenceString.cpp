@@ -3,7 +3,7 @@
 vector<int> generateReferenceString(const vector<string>& log) {
     vector<int> reference_string;
     int previous_value = 0;
-    // cout << log << endl;
+    
     for (size_t i = 0; i < log.size(); ++i) {
         unsigned int decimalValue;
         try {
