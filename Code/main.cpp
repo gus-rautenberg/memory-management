@@ -15,6 +15,9 @@ int main(int argc, char const *argv[])
         vector<int> reference_string;
         vector<string> log = getLog(to_string(i));
         reference_string = generateReferenceString(log);
+        double logSize = log.size();
+        double refSize = reference_string.size();
+        cout << "Proporção RefString/log: " << refSize / logSize << endl;
         cout << "trace " << i << " size: " << reference_string.size() << endl;
 
         for (int j = 4; j <= 32; j *= 2)
